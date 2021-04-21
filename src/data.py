@@ -37,7 +37,7 @@ def generate_data(number_of_bags = 1000):
         # plt.figure()
         # plt.plot(x_instances[...,0], x_instances[...,1], 'kx')
         # plt.show()
-    x = np.array(x, dtype=np.float)
+    x = np.expand_dims(np.array(x, dtype=np.float), axis=1)
     y = np.array(y, dtype=np.float)
     y_bags = np.array(y_bags, dtype=np.float)
 

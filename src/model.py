@@ -39,6 +39,7 @@ def build_model(data_dims=2):
     num_training_points = 8000
     num_classes = 1
     batch_size = 8
+    inst_bag_dim = 8
 
     def mc_sampling(x):
         """
@@ -79,7 +80,7 @@ def build_model(data_dims=2):
         x = tf.ones_like(x) - x
         return x
 
-    input = tf.keras.layers.Input(shape=[data_dims])
+    input = tf.keras.layers.Input(shape=[inst_bag_dim, data_dims])
     x = tfp.layers.VariationalGaussianProcess(
         num_inducing_points=num_inducing_points,
         kernel_provider=RBFKernelFn(),
